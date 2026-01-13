@@ -8,9 +8,7 @@ export default function Home() {
   return (
     <main className="w-full bg-white text-black font-sans">
       
-      {/* 1. HERO SECTION: THE HOOK */}
       <section className="relative w-full h-[90vh] bg-neutral-900 overflow-hidden">
-        {/* Visuals: High-quality video loop placeholder */}
         <video 
           autoPlay 
           muted 
@@ -49,7 +47,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. PRODUCT CATEGORIES & SUB-CATEGORIES */}
       <section className="py-24 px-6 max-w-[1440px] mx-auto">
         <div className="mb-16">
           <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-4 text-center">Industry Expertise</h2>
@@ -76,7 +73,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. THE "BUILD YOUR BRAND" SECTION (Customization) */}
       <section className="py-24 bg-neutral-950 text-white px-6">
         <div className="max-w-[1440px] mx-auto">
           <div className="text-center mb-20">
@@ -99,7 +95,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Request Customization Form */}
           <div className="max-w-4xl mx-auto bg-white text-black p-10 md:p-16 rounded-sm">
             <h3 className="text-2xl font-bold mb-8 text-center uppercase tracking-tighter">Request Customization</h3>
             <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -127,8 +122,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* 4. BODY CONTENT SECTIONS: ADVANTAGES */}
       <section className="py-24 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
         <div className="flex items-start gap-6">
           <Zap className="shrink-0 text-red-600" size={32} />
@@ -150,14 +143,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. CLIENT SHOWCASE & TESTIMONIALS */}
       <section className="py-24 bg-neutral-50">
         <div className="px-6 mb-16 text-center">
           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-2">Our Network</p>
           <h3 className="text-2xl font-light">Trusted by Emerging & Global Brands</h3>
         </div>
         
-        {/* Scrolling Logobar placeholder */}
         <div className="flex overflow-hidden whitespace-nowrap gap-16 opacity-30 grayscale mb-24">
            {['Brand One', 'Brand Two', 'Brand Three', 'Brand Four', 'Brand Five'].map(b => (
              <span key={b} className="text-4xl font-black uppercase tracking-tighter">{b}</span>
