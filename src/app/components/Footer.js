@@ -63,7 +63,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Newsletter */}
           <div className="md:col-span-3">
             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-black">Newsletter</h4>
             <p className="text-[12px] text-neutral-500 font-light leading-snug mb-6">
@@ -83,7 +82,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Copyright Section */}
         <div className="mt-20 pt-8 border-t border-neutral-50 flex justify-center">
           <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-neutral-300">
             © {new Date().getFullYear()} Orris & Amber. All Rights Reserved.

@@ -49,24 +49,22 @@ export default function Navbar() {
             </li>
             
             <li className="group relative cursor-pointer py-4">
-              <div className="flex items-center gap-1 group-hover:text-black">
-                Services <ChevronDown size={12} />
-              </div>
-              <div className="absolute top-full left-0 w-64 bg-white border border-neutral-100 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 p-4">
-                <ul className="space-y-4">
-                  <li><Link href="/services/private-label" className="hover:text-black block">Private Label</Link></li>
-                  <li><Link href="/services/contract-manufacturing" className="hover:text-black block">Contract Manufacturing</Link></li>
-                  <li><Link href="/services/packaging-design" className="hover:text-black block">Packaging Design</Link></li>
-                </ul>
-              </div>
+             <Link href="/products" className="hover:text-black transition-colors flex items-center gap-1">Products</Link>
             </li>
 
             <li>
-              <Link href="/categories" className="hover:text-black transition-colors">Product Categories</Link>
+              <Link href="/packaging" className="hover:text-black transition-colors">Packaging</Link>
             </li>
             
             <li>
               <Link href="/customization" className="text-red-600 hover:text-red-700 transition-colors">Build Your Brand</Link>
+            </li>
+
+            <li>
+              <Link href="/corporate_gifting" className="hover:text-black transition-colors">Corporate Gifting</Link>
+            </li>
+            <li>
+              <Link href="/blogs" className="hover:text-black transition-colors">Blogs</Link>
             </li>
             
             <li>
