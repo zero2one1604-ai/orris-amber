@@ -1,19 +1,15 @@
 export const productCategories = [
+
   {
     slug: "solid-perfume",
     name: "Solid Perfume",
+    image: "/images/solidperfume.png",
     products: [
       {
-        slug: "rose-solid",
+        slug: "rose-solid-perfume",
         name: "Rose Solid Perfume",
-        image: "/products/solid-rose.jpg",
-        description: "Long-lasting pocket solid perfume made with natural wax."
-      },
-      {
-        slug: "sandal-solid",
-        name: "Sandal Solid Perfume",
-        image: "/products/solid-sandal.jpg",
-        description: "Warm sandalwood fragrance in compact travel format."
+        image: "/images/solidperfume.png",
+        description: "Pocket friendly wax based perfume infused with rose fragrance."
       }
     ]
   },
@@ -21,12 +17,25 @@ export const productCategories = [
   {
     slug: "edp",
     name: "EDP",
+    image: "/images/eaudeperfumetwo.png",
     products: [
       {
         slug: "amber-edp",
-        name: "Amber EDP",
-        image: "/products/amber-edp.jpg",
-        description: "Premium Eau De Parfum with deep amber notes."
+        name: "Amber Eau De Parfum",
+        image: "/images/eau de perfume.png",
+        description: "Premium Eau De Parfum with rich amber fragrance and long projection."
+      },
+      {
+        slug: "oud-edp",
+        name: "Oud Eau De Parfum",
+        image: "/images/eaudeperfumetwo.png",
+        description: "Luxurious Eau De Parfum featuring rare oriental oud fragrance."
+      },
+      {
+        slug: "citrus-edp",
+        name: "Citrus Eau De Parfum",
+        image: "/images/equdeperfumethree.png",
+        description: "Refreshing Eau De Parfum with vibrant citrus fragrance and zesty top notes."
       }
     ]
   },
@@ -34,12 +43,13 @@ export const productCategories = [
   {
     slug: "attar",
     name: "Attar",
+    image: "/images/attar.png",
     products: [
       {
-        slug: "oudh-attar",
-        name: "Oudh Attar",
-        image: "/products/attar-oudh.jpg",
-        description: "Traditional concentrated attar inspired by Arabian oudh."
+        slug: "classic-attar",
+        name: "Classic Attar",
+        image: "/images/attar.png",
+        description: "Traditional alcohol free perfume oil crafted using natural aromatic extracts."
       }
     ]
   },
@@ -47,12 +57,19 @@ export const productCategories = [
   {
     slug: "candles",
     name: "Candles",
+    image: "/images/coconutclovecandle.png",
     products: [
       {
-        slug: "lavender-candle",
-        name: "Lavender Candle",
-        image: "/products/lavender-candle.jpg",
-        description: "Hand poured aromatic candle for relaxation."
+        slug: "coconut-clove-candle",
+        name: "Coconut Clove Candle",
+        image: "/images/coconutclovecandle.png",
+        description: "Hand poured coconut shell candle with warm clove fragrance."
+      },
+      {
+        slug: "daisy-candle",
+        name: "Coconut Clove Candle",
+        image: "/images/coconutlovecandletwo.png",
+        description: "Decorative handcrafted candle shaped like a blooming flower."
       }
     ]
   },
@@ -60,12 +77,13 @@ export const productCategories = [
   {
     slug: "car-perfume",
     name: "Car Perfume",
+    image: "/images/carfreshner.png",
     products: [
       {
-        slug: "fresh-drive",
-        name: "Fresh Drive",
-        image: "/products/car-fresh.jpg",
-        description: "Long lasting fragrance for car interiors."
+        slug: "car-freshener",
+        name: "Car Freshener",
+        image: "/images/carfreshner.png",
+        description: "Elegant hanging car fragrance bottle designed for long lasting freshness."
       }
     ]
   },
@@ -73,12 +91,13 @@ export const productCategories = [
   {
     slug: "wardrobe-fresheners",
     name: "Wardrobe Fresheners",
+    image: "/images/wardrobefreshner.png",
     products: [
       {
-        slug: "linen-fresh",
-        name: "Linen Fresh",
-        image: "/products/linen-fresh.jpg",
-        description: "Keeps wardrobes fresh and aromatic."
+        slug: "wardrobe-freshener",
+        name: "Wardrobe Freshener",
+        image: "/images/wardrobefreshner.png",
+        description: "Natural fragrance beads designed to keep wardrobes and closets fresh."
       }
     ]
   },
@@ -86,12 +105,13 @@ export const productCategories = [
   {
     slug: "ubtan",
     name: "Ubtan",
+    image: "/images/royal_ubtanpowder.png",
     products: [
       {
-        slug: "herbal-ubtan",
-        name: "Herbal Ubtan",
-        image: "/products/ubtan.jpg",
-        description: "Traditional Ayurvedic skin cleansing powder."
+        slug: "royal-ubtan",
+        name: "Royal Ubtan Powder",
+        image: "/images/royal_ubtanpowder.png",
+        description: "Traditional Ayurvedic ubtan powder crafted with natural herbs for glowing skin."
       }
     ]
   },
@@ -99,12 +119,19 @@ export const productCategories = [
   {
     slug: "lip-balm",
     name: "Lip Balm",
+    image: "/images/lipbutter.png",
     products: [
       {
-        slug: "rose-balm",
-        name: "Rose Lip Balm",
-        image: "/products/lip-balm.jpg",
-        description: "Hydrating balm infused with rose extract."
+        slug: "lip-butter",
+        name: "Lip Butter",
+        image: "/images/lipbutter.png",
+        description: "Deep moisturizing lip butter enriched with nourishing oils and butters."
+      },
+      {
+        slug: "lip-balm",
+        name: "Lip Balm",
+        image: "/images/lipbuttertwo.png",
+        description: "Protective lip balm with natural ingredients to soothe and hydrate lips."
       }
     ]
   },
@@ -112,12 +139,43 @@ export const productCategories = [
   {
     slug: "soaps",
     name: "Soaps",
+    image: "/images/blueclaycharcoalsoap.png",
     products: [
       {
-        slug: "sandal-soap",
-        name: "Sandal Soap",
-        image: "/products/sandal-soap.jpg",
-        description: "Natural soap enriched with sandalwood oil."
+        slug: "blue-clay-charcoal",
+        name: "Blue Clay Charcoal Soap",
+        image: "/images/blueclaycharcoalsoap.png",
+        description: "Detoxifying soap enriched with blue clay and activated charcoal."
+      },
+      {
+        slug: "ubtan-soap",
+        name: "Ubtan Soap",
+        image: "/images/ubtansoap.png",
+        description: "Traditional herbal ubtan soap for natural skin cleansing."
+      },
+      {
+        slug: "saffron-soap",
+        name: "Saffron Soap",
+        image: "/images/saffronsoap.png",
+        description: "Luxury saffron infused soap known for brightening skin."
+      },
+      {
+        slug: "grape-soap",
+        name: "Grape Soap",
+        image: "/images/grapesoap.png",
+        description: "Antioxidant rich grape soap for healthy glowing skin."
+      },
+      {
+        slug: "moroccan-soap",
+        name: "Moroccan Soap",
+        image: "/images/moraccansoap.png",
+        description: "Traditional Moroccan style cleansing soap enriched with natural oils."
+      },
+      {
+        slug: "honey-oats-milk",
+        name: "Honey Oats Milk Soap",
+        image: "/images/honeyoatsmilksoappackage.png",
+        description: "Gentle exfoliating soap enriched with honey, oats and milk."
       }
     ]
   },
@@ -125,18 +183,13 @@ export const productCategories = [
   {
     slug: "shampoo",
     name: "Shampoo",
+    image: "/images/shampoo.png",
     products: [
       {
-        slug: "herbal-repair",
-        name: "Herbal Repair Shampoo",
-        image: "/products/shampoo1.jpg",
-        description: "Strengthens damaged hair with herbal extracts."
-      },
-      {
-        slug: "argan-moisture",
-        name: "Argan Moisture Shampoo",
-        image: "/products/shampoo2.jpg",
-        description: "Hydrating shampoo enriched with argan oil."
+        slug: "rosemary-shampoo",
+        name: "Rosemary Shampoo",
+        image: "/images/shampoo.png",
+        description: "Herbal rosemary shampoo that strengthens roots and promotes hair growth."
       }
     ]
   },
@@ -144,12 +197,13 @@ export const productCategories = [
   {
     slug: "body-scrub",
     name: "Body Scrub",
+    image: "/images/coffeluffa.png",
     products: [
       {
-        slug: "coffee-scrub",
-        name: "Coffee Body Scrub",
-        image: "/products/coffee-scrub.jpg",
-        description: "Exfoliating scrub made with natural coffee grains."
+        slug: "coffee-luffa",
+        name: "Coffee Luffa Scrub",
+        image: "/images/coffeluffa.png",
+        description: "Natural exfoliating body scrub bar made with coffee and luffa fibers."
       }
     ]
   },
@@ -157,13 +211,15 @@ export const productCategories = [
   {
     slug: "hair-oil",
     name: "Hair Oil",
+    image: "/images/hairoil.png",
     products: [
       {
-        slug: "ayurvedic-hair-oil",
-        name: "Ayurvedic Hair Oil",
-        image: "/products/hair-oil.jpg",
-        description: "Traditional herbal hair nourishment oil."
+        slug: "herbal-hair-oil",
+        name: "Herbal Hair Oil",
+        image: "/images/hairoil.png",
+        description: "Traditional herbal hair oil formulated to nourish scalp and strengthen hair."
       }
     ]
   }
+
 ]

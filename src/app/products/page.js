@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { productCategories } from "@/app/lib/products_database"
 import { ArrowUpRight, Leaf, Beaker, Sparkles } from "lucide-react"
 
@@ -12,7 +13,6 @@ export default function ProductsPage() {
     <main className="w-full bg-white text-black pt-32 pb-24 font-sans selection:bg-black selection:text-white">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         
-        {/* 1. HEADER SECTION */}
         <header className="mb-24">
           <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-6 text-neutral-400">The Portfolio</h2>
           <h1 className="text-4xl md:text-8xl font-light tracking-tighter uppercase leading-none mb-12">
@@ -32,39 +32,44 @@ export default function ProductsPage() {
           </div>
         </header>
 
-        {/* 2. CATEGORY GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-200 border border-neutral-200">
           {productCategories.map((cat, i) => (
             <Link
               key={cat.slug}
               href={`/products/${cat.slug}`}
-              className="group relative bg-white p-12 md:p-16 transition-all duration-500 hover:bg-neutral-50 flex flex-col h-[500px] overflow-hidden"
+              className="group bg-white transition-all duration-500 hover:bg-neutral-50 flex flex-col overflow-hidden"
             >
-              {/* Animated Background Number */}
-              <span className="absolute -bottom-10 -right-4 text-[12rem] font-bold text-neutral-50 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
-                0{i + 1}
-              </span>
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-100">
+                <Image 
+                  src={cat.image || "/images/default-product.jpg"} 
+                  alt={cat.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-all duration-700"
+                />
+                <span className="absolute top-6 left-6 text-[10px] font-bold tracking-widest opacity-30 group-hover:opacity-100 transition-opacity">
+                   / 0{i + 1}
+                </span>
+              </div>
 
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex justify-between items-start mb-12">
-                  <div className="h-px w-12 bg-black mt-2 group-hover:w-20 transition-all duration-500"></div>
-                  <ArrowUpRight size={20} className="text-neutral-300 group-hover:text-black transition-colors" />
+              <div className="p-10 md:p-12 flex flex-col flex-grow border-t border-neutral-100">
+                <div className="flex justify-between items-start mb-8">
+                  <div className="h-px w-8 bg-black mt-2 group-hover:w-16 transition-all duration-500"></div>
+                  <ArrowUpRight size={18} className="text-neutral-300 group-hover:text-black transition-colors" />
                 </div>
 
-                <div className="mb-auto">
-                    <h2 className="text-3xl md:text-4xl font-light uppercase tracking-tighter mb-4 group-hover:tracking-tight transition-all">
+                <div className="mb-6">
+                    <h2 className="text-2xl md:text-3xl font-light uppercase tracking-tighter mb-2 group-hover:tracking-tight transition-all">
                         {cat.name}
                     </h2>
-                    <p className="text-xs text-neutral-400 uppercase tracking-[0.2em] font-medium">
+                    <p className="text-[10px] text-neutral-400 uppercase tracking-[0.2em] font-bold">
                         {cat.products.length} Master Formulations
                     </p>
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-neutral-100">
-                    <p className="text-xs text-neutral-500 font-light leading-relaxed line-clamp-3">
-                        {/* Placeholder for description if not in your DB, otherwise use cat.description */}
-                        Explore our signature range of {cat.name.toLowerCase()} designed to 
-                        maximize brand impact and consumer loyalty in the 2026 market.
+                <div className="mt-auto pt-6 border-t border-neutral-50">
+                    <p className="text-xs text-neutral-500 font-light leading-relaxed line-clamp-2">
+                        High-performance {cat.name.toLowerCase()} developed for 
+                        the global luxury market.
                     </p>
                     <span className="inline-block mt-6 text-[10px] font-bold uppercase tracking-widest border-b border-black pb-1">
                         View Collection
@@ -93,7 +98,6 @@ export default function ProductsPage() {
                     </Link>
                 </div>
             </div>
-            {/* Decorative Element */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-neutral-800 to-transparent opacity-20 -mr-32 -mt-32 rounded-full"></div>
         </section>
 

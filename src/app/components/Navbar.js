@@ -1,4 +1,4 @@
-"use client"; // Required for state handling in Next.js
+"use client";
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,7 +8,6 @@ import { Search, Menu, X, ChevronRight, Phone } from 'lucide-react';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -30,10 +29,8 @@ export default function Navbar() {
 
   return (
     <header className="w-full bg-white border-b border-neutral-100 sticky top-0 z-[100]">
-      {/* 1. TOP BAR */}
       <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between gap-8">
         
-        {/* LOGO */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center gap-2">
             <Image 
@@ -41,12 +38,10 @@ export default function Navbar() {
               alt="Orris & Amber Logo" 
               width={140} 
               height={50}
-              className="w-auto h-8 md:h-10 object-contain"
+              className="w-auto h-8 md:h-14 object-contain"
             />
           </Link>
-        </div>
-
-        {/* SEARCH - Hidden on Mobile, Visible on Desktop */}
+        </div>\
         <div className="hidden lg:flex items-center gap-3 flex-1 max-w-md bg-neutral-50 px-4 py-2 rounded-sm border border-neutral-100 focus-within:border-black transition-all">
           <Search size={14} className="text-neutral-400" />
           <input 
@@ -56,7 +51,6 @@ export default function Navbar() {
           />
         </div>
 
-        {/* ACTIONS & HAMBURGER */}
         <div className="flex items-center gap-4">
           <Link 
             href="/contact_us" 
@@ -75,7 +69,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 2. DESKTOP NAVIGATION (Secondary Row) */}
       <nav className="hidden lg:block border-t border-neutral-50 bg-white">
         <div className="max-w-[1440px] mx-auto px-6 h-12 flex items-center justify-center">
           <ul className="flex items-center gap-8 text-[10px] font-bold uppercase tracking-[0.2em]">
@@ -146,7 +139,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Background Dimmer */}
       {isOpen && (
         <div 
           className="fixed inset-0 bg-black/10 backdrop-blur-sm z-[80] lg:hidden"

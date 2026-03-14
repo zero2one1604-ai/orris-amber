@@ -1,51 +1,35 @@
 import Link from 'next/link'
-import { 
-  Search, User, Heart, ShoppingBag, Phone, Menu, 
-  Beaker, Package, ShieldCheck, Zap, ArrowRight, Upload 
+import { ShieldCheck, Zap, Upload 
 } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Home() {
   return (
     <main className="w-full bg-white text-black font-sans">
       
-      <section className="relative w-full h-[90vh] bg-neutral-900 overflow-hidden">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
-          poster="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=2000"
-        >
-          <source src="/hero-loop.mp4" type="video/mp4" />
-        </video>
+  <div className="relative w-full">
+      <div className="hidden md:block">
+        <Image
+          src="/images/desktop.png"
+          alt="Desktop Banner"
+          width={1920}
+          height={600}
+          className="w-full h-auto"
+          priority
+        />
+      </div>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6">
-          <div className="max-w-4xl text-center">
-            <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-6 leading-tight">
-              From Concept to Counter: <br className="hidden md:block" /> 
-              Your one stop solution for your fragrance and cosmetic needs.
-            </h1>
-            <p className="text-sm md:text-xl font-light tracking-wide mb-10 opacity-90 max-w-2xl mx-auto">
-              Full-service contract manufacturing for EDPs, Skincare, and Premium Packaging. 
-              <span className="block font-medium mt-2">High quality, Low MOQs.</span>
-            </p>
-            <div className="flex flex-col md:flex-row justify-center gap-5">
-              <Link 
-                href="/catalog" 
-                className="bg-white text-black px-10 py-4 text-[11px] font-bold uppercase tracking-widest hover:bg-neutral-200 transition-all"
-              >
-                Explore Our Catalog
-              </Link>
-              <Link 
-                href="/contact" 
-                className="border border-white px-10 py-4 text-[11px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all"
-              >
-                Consult with an Expert
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="block md:hidden">
+        <Image
+          src="/images/mobile.png"
+          alt="Mobile Banner"
+          width={750}
+          height={1000}
+          className="w-full h-auto"
+          priority
+        />
+      </div>
+    </div>
 
       <section className="py-24 px-6 max-w-[1440px] mx-auto">
         <div className="mb-16">
