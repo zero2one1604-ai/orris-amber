@@ -1,58 +1,127 @@
 export const productCategories = [
 
   {
-    slug: "solid-perfume",
-    name: "Solid Perfume",
-    image: "/images/solidperfume.png",
-    products: [
-      {
-        slug: "rose-solid-perfume",
-        name: "Rose Solid Perfume",
-        image: "/images/solidperfume.png",
-        description: "Pocket friendly wax based perfume infused with rose fragrance."
-      }
-    ]
-  },
+  slug: "solid-perfume",
+  name: "Solid Perfume",
+  image: "/images/solidperfume.png",
+  list: [
+    { name: "Miss Dior" },
+    { name: "Sandalwood" },
+    { name: "Oud Arabian" },
+    { name: "J'adore" },
+    { name: "Bombshell" },
+    { name: "Black Opium" },
+    { name: "Mahogany" },
+    { name: "Creed Aventus" },
+    { name: "Azzaro Most Wanted" },
+    { name: "Lady Million" },
+    { name: "Cedar" },
+    { name: "Lavender" },
+    { name: "Acqua di Gio" },
+    { name: "RL Polo Sports" },
+    { name: "Terre Hermès" },
+    { name: "PR Invictus" },
+    { name: "Versace Eros" },
+    { name: "Bleu de Chanel" },
+    { name: "Gucci Bloom" },
+    { name: "Coffee" }
+  ],
+  products: [
+    {
+      slug: "rose-solid-perfume",
+      name: "Rose Solid Perfume",
+      image: "/images/solidperfume.png",
+      description: "Pocket friendly wax based perfume infused with rose fragrance."
+    }
+  ]
+},
 
   {
-    slug: "edp",
-    name: "EDP",
-    image: "/images/eaudeperfumetwo.png",
-    products: [
-      {
-        slug: "amber-edp",
-        name: "Amber Eau De Parfum",
-        image: "/images/eau de perfume.png",
-        description: "Premium Eau De Parfum with rich amber fragrance and long projection."
-      },
-      {
-        slug: "oud-edp",
-        name: "Oud Eau De Parfum",
-        image: "/images/eaudeperfumetwo.png",
-        description: "Luxurious Eau De Parfum featuring rare oriental oud fragrance."
-      },
-      {
-        slug: "citrus-edp",
-        name: "Citrus Eau De Parfum",
-        image: "/images/equdeperfumethree.png",
-        description: "Refreshing Eau De Parfum with vibrant citrus fragrance and zesty top notes."
-      }
-    ]
-  },
+  slug: "edp",
+  name: "EDP",
+  image: "/images/eaudeperfumetwo.png",
+  list: [
+    { name: "Aqua Di Gio" },
+    { name: "Azzaro Most Wanted" },
+    { name: "Baccarat Rouge" },
+    { name: "Black Orchid" },
+    { name: "Bleu De Chanel" },
+    { name: "Blooming Bouquet" },
+    { name: "Bombshell" },
+    { name: "Bulgari Aqua" },
+    { name: "Cool Water Woman" },
+    { name: "Dior J’adore" },
+    { name: "DYPTQ Tam Dao" },
+    { name: "Good Girl" },
+    { name: "Gucci Bamboo" },
+    { name: "Gucci Bloom" },
+    { name: "Gucci Flora" },
+    { name: "Gucci Oud" },
+    { name: "Hugo Boss" },
+    { name: "JPG Ultra Male" },
+    { name: "Kayali Vanilla" },
+    { name: "Lady Million" },
+    { name: "Mont Oud" },
+    { name: "One Million Lucky" },
+    { name: "Oud Arabian" },
+    { name: "PR Invictus" },
+    { name: "RL Polo Sports" },
+    { name: "Sandal Leather" },
+    { name: "Sauvage" },
+    { name: "Silk Oud" },
+    { name: "Tobacco Vanilla" },
+    { name: "Terre Hermes" },
+    { name: "TF Noir Ext" },
+    { name: "Versace Eros" },
+    { name: "White Oud" },
+    { name: "YSL Y" }
+  ],
+  products: [
+    {
+      slug: "amber-edp",
+      name: "Amber Eau De Parfum",
+      image: "/images/eau de perfume.png",
+      description: "Premium Eau De Parfum with rich amber fragrance and long projection."
+    },
+    {
+      slug: "oud-edp",
+      name: "Oud Eau De Parfum",
+      image: "/images/eaudeperfumetwo.png",
+      description: "Luxurious Eau De Parfum featuring rare oriental oud fragrance."
+    },
+    {
+      slug: "citrus-edp",
+      name: "Citrus Eau De Parfum",
+      image: "/images/equdeperfumethree.png",
+      description: "Refreshing Eau De Parfum with vibrant citrus fragrance and zesty top notes."
+    }
+  ]
+},
 
-  {
-    slug: "attar",
-    name: "Attar",
-    image: "/images/attar.png",
-    products: [
-      {
-        slug: "classic-attar",
-        name: "Classic Attar",
-        image: "/images/attar.png",
-        description: "Traditional alcohol free perfume oil crafted using natural aromatic extracts."
-      }
-    ]
-  },
+{
+  slug: "attar",
+  name: "Attar",
+  image: "/images/attar.png",
+  list: [
+    { name: "Gucci Oud" },
+    { name: "Sandalwood" },
+    { name: "Mukhalat (Khus profile)" },
+    { name: "Oud Wood" },
+    { name: "Silk Oud" },
+    { name: "Oud Arabian" },
+    { name: "Jannat" },
+    { name: "Rukh Khus" },
+    { name: "Rose" }
+  ],
+  products: [
+    {
+      slug: "classic-attar",
+      name: "Classic Attar",
+      image: "/images/attar.png",
+      description: "Traditional alcohol free perfume oil crafted using natural aromatic extracts."
+    }
+  ]
+},
 
   {
     slug: "candles",
@@ -75,18 +144,26 @@ export const productCategories = [
   },
 
   {
-    slug: "car-perfume",
-    name: "Car Perfume",
-    image: "/images/carfreshner.png",
-    products: [
-      {
-        slug: "car-freshener",
-        name: "Car Freshener",
-        image: "/images/carfreshner.png",
-        description: "Elegant hanging car fragrance bottle designed for long lasting freshness."
-      }
-    ]
-  },
+  slug: "car-perfume",
+  name: "Car Perfume",
+  image: "/images/carfreshner.png",
+  list: [
+    { name: "Gucci Bamboo" },
+    { name: "On G – Guci" },
+    { name: "Versace Eros" },
+    { name: "Miss Dior" },
+    { name: "Bulgari Aqva" },
+    { name: "Sauvage CD" }
+  ],
+  products: [
+    {
+      slug: "car-freshener",
+      name: "Car Freshener",
+      image: "/images/carfreshner.png",
+      description: "Elegant hanging car fragrance bottle designed for long lasting freshness."
+    }
+  ]
+},
 
   {
     slug: "wardrobe-fresheners",

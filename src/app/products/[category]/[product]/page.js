@@ -39,17 +39,15 @@ export default async function ProductPage({ params }) {
 
   if (!productData) return notFound()
 
-  // Filter out the current product for the "related" section
   const otherProducts = categoryData.products.filter(p => p.slug !== productData.slug)
 
   return (
     <main className="w-full bg-white text-black pt-32 pb-24 font-sans selection:bg-black selection:text-white">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         
-        {/* BREADCRUMBS */}
         <nav className="mb-12 flex items-center justify-between">
           <Link 
-            href={`/products/${category}`} 
+            href={`/products`} 
             className="group flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.3em] text-neutral-400 hover:text-black transition-colors"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 
@@ -62,16 +60,14 @@ export default async function ProductPage({ params }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           
-          {/* LEFT: VISUALS GALLERY */}
           <div className="lg:col-span-7 space-y-8">
             <div className="aspect-[4/5] bg-neutral-50 overflow-hidden rounded-sm">
               <img
                 src={productData.image}
                 alt={productData.name}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover transition-all duration-1000"
               />
             </div>
-            {/* Secondary atmospheric image if your database has it, otherwise a placeholder */}
             <div className="grid grid-cols-2 gap-8">
                <div className="aspect-square bg-neutral-100 flex items-center justify-center p-12">
                   <p className="text-[10px] uppercase tracking-widest text-neutral-400 text-center leading-loose">
@@ -84,7 +80,6 @@ export default async function ProductPage({ params }) {
             </div>
           </div>
 
-          {/* RIGHT: PRODUCT INFO (Sticky) */}
           <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-12">
             <header>
               <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.4em] mb-4">
@@ -98,7 +93,6 @@ export default async function ProductPage({ params }) {
               </p>
             </header>
 
-            {/* PRODUCT ATTRIBUTES */}
             <div className="grid grid-cols-2 gap-y-10 gap-x-4 py-10 border-y border-neutral-100">
                 <div className="flex gap-4">
                     <Droplet size={18} className="text-neutral-300" />
@@ -130,7 +124,6 @@ export default async function ProductPage({ params }) {
                 </div>
             </div>
 
-            {/* CALL TO ACTION */}
             <div className="space-y-4">
                 <button className="w-full bg-black text-white py-5 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-neutral-800 transition-colors">
                     Inquire for Bulk Order
@@ -140,34 +133,9 @@ export default async function ProductPage({ params }) {
                 </p>
             </div>
 
-            {/* RELATED PRODUCTS / SWATCHES */}
-            {otherProducts.length > 0 && (
-              <div className="pt-12">
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-neutral-400">
-                  Explore other {categoryData.name}
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {otherProducts.slice(0, 4).map((p) => (
-                    <Link
-                      key={p.slug}
-                      href={`/products/${category}/${p.slug}`}
-                      className="group border border-neutral-100 p-4 hover:border-black transition-all flex items-center gap-4"
-                    >
-                      <div className="w-12 h-12 bg-neutral-50 overflow-hidden grayscale group-hover:grayscale-0 transition-all">
-                        <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
-                      </div>
-                      <span className="text-[10px] font-bold uppercase tracking-tighter truncate">
-                        {p.name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
+           
           </div>
         </div>
-
-        {/* SEO SECTION: BOTTOM ACCORDION OR INFO */}
         <section className="mt-32 pt-24 border-t border-neutral-100">
             <div className="max-w-2xl">
                 <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-8">Product Narrative</h2>
@@ -178,6 +146,30 @@ export default async function ProductPage({ params }) {
                 </p>
             </div>
         </section>
+
+        {categoryData.list && (
+                <div className="lg:col-span-7 mt-10">
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-8">Available Profiles in this Collection</h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-8">
+                      {categoryData.list.map((item, index) => (
+                        <div key={index} className="flex items-center gap-3 group">
+                          <span className="text-[8px] text-neutral-300 font-mono group-hover:text-black transition-colors">
+                            {(index + 1).toString().padStart(2, '0')}
+                          </span>
+                          <span className="text-[11px] uppercase tracking-wider text-neutral-500 group-hover:text-black transition-colors font-light">
+                            {item.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-12 p-6 bg-neutral-50 border border-neutral-100">
+                      <p className="text-[10px] text-neutral-400 uppercase tracking-widest leading-relaxed">
+                        Note: All profiles listed above are available for custom branding and bulk corporate packaging. 
+                        Contact our concierge for specific notes on each profile.
+                      </p>
+                    </div>
+                </div>
+              )}
 
       </div>
     </main>

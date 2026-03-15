@@ -1,7 +1,11 @@
+'use client';
 import React from 'react';
-import { Package, Droplet, Box, PenTool, Layout, CheckCircle2, Shield, Sparkles } from 'lucide-react';
+import { useRef } from 'react';
+import { Box, PenTool, Layout, Shield, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function PackagingPage() {
+  const scrollRef = useRef(null);
+  const scrollRef2 = useRef(null);
   const primaryPackaging = [
     { title: "Glass Vessels", desc: "Premium bottles in various shapes and sizes (15ml to 100ml) with clear, frosted, or colored finishes." },
     { title: "Dispensing Systems", desc: "Precision spray mechanisms including fine mist, pumps, and high-end atomizers." },
@@ -27,11 +31,51 @@ export default function PackagingPage() {
     }
   ];
 
+  const galleryImages = [
+    "/images/bottleone.png",
+    "/images/bottletwo.png",
+    "/images/bottlethree.png",
+    "/images/bottlefour.png",
+    "/images/bottlefive.jpeg",
+    "/images/bottlesix.png",
+    "/images/bottleseven.png",
+    "/images/bottleeight.png",
+    "/images/bottleninne.png",
+    "/images/bottleten.png"
+  ];
+
+    const capImages = [
+    "/images/capone.png",
+    "/images/captwo.png",
+    "/images/capthree.png",
+    "/images/capfour.png",
+    "/images/capfive.png",
+    "/images/capsix.png",
+    "/images/capseven.png",
+    "/images/capeight.png",
+    "/images/capnine.png",
+    "/images/capten.png"
+  ];
+
+  const scroll = (direction) => {
+    const { current } = scrollRef;
+    if (current) {
+      const scrollAmount = 400;
+      current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+    const scroll2 = (direction) => {
+    const { current } = scrollRef2;
+    if (current) {
+      const scrollAmount = 400;
+      current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   return (
     <main className="w-full bg-white text-black pt-32 pb-24 font-sans">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        
-        {/* 1. HERO SECTION */}
         <section className="mb-32">
           <h1 className="text-4xl md:text-7xl font-light tracking-tighter uppercase mb-12 leading-none">
             The Vessel for <br /> Your Vision
@@ -59,7 +103,84 @@ export default function PackagingPage() {
           </div>
         </section>
 
-        {/* 2. PRIMARY PACKAGING (GRID) */}
+        <section className="mb-32">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-widest">Bottles Showcase</h3>
+              <p className="text-[10px] text-neutral-400 uppercase tracking-widest mt-1">Notice the range</p>
+            </div>
+            <div className="flex gap-2">
+              <button 
+                onClick={() => scroll('left')}
+                className="p-3 border border-neutral-200 hover:bg-black hover:text-white transition-all rounded-full"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button 
+                onClick={() => scroll('right')}
+                className="p-3 border border-neutral-200 hover:bg-black hover:text-white transition-all rounded-full"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+          
+          <div 
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {galleryImages.map((img, i) => (
+              <div key={i} className="min-w-[300px] md:min-w-[400px] aspect-[3/4] snap-start bg-neutral-100 overflow-hidden">
+                <img 
+                  src={img} 
+                  alt={`Gallery ${i + 1}`} 
+                  className="w-full h-full object-cover transition-all duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-32">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-widest">Caps Showcase</h3>
+              <p className="text-[10px] text-neutral-400 uppercase tracking-widest mt-1">Notice the range</p>
+            </div>
+            <div className="flex gap-2">
+              <button 
+                onClick={() => scroll2('left')}
+                className="p-3 border border-neutral-200 hover:bg-black hover:text-white transition-all rounded-full"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button 
+                onClick={() => scroll2('right')}
+                className="p-3 border border-neutral-200 hover:bg-black hover:text-white transition-all rounded-full"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+          
+          <div 
+            ref={scrollRef2}
+            className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {capImages.map((img, i) => (
+              <div key={i} className="min-w-[300px] md:min-w-[400px] aspect-[3/4] snap-start bg-neutral-100 overflow-hidden">
+                <img 
+                  src={img} 
+                  alt={`Gallery ${i + 1}`} 
+                  className="w-full h-full object-cover transition-all duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="py-24 border-t border-neutral-100 mb-32">
           <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
@@ -82,7 +203,6 @@ export default function PackagingPage() {
           </div>
         </section>
 
-        {/* 3. SECONDARY & LABELS (TIERED CARDS) */}
         <section className="mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-neutral-200 border border-neutral-200">
             {secondaryPackaging.map((section, i) => (
@@ -102,7 +222,6 @@ export default function PackagingPage() {
           </div>
         </section>
 
-        {/* 4. DESIGN SERVICES (CONTRAST SECTION) */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-black text-white overflow-hidden">
           <div className="p-12 md:p-24 flex flex-col justify-center">
             <PenTool className="mb-8 text-neutral-500" size={32} />

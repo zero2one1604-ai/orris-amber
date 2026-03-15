@@ -2,26 +2,30 @@ import React from 'react';
 import { Gift, Briefcase, Award, Calendar, RefreshCw, Send, CheckSquare, PenTool, Truck } from 'lucide-react';
 
 export default function CorporateGifting() {
-  const giftSets = [
+ const giftSets = [
     {
       title: "Luxury Fragrance Collection",
       desc: "Premium EDPs, attars, and solid perfumes in designer packaging. Ideal for executive appreciation.",
-      icon: <Gift size={20} />
+      icon: <Gift size={20} />,
+      image: "/images/corporategifting.jpeg"
     },
     {
       title: "Spa Wellness Retreat",
       desc: "Bath salts, body scrubs, and scented candles. Perfect for employee wellness and stress-relief.",
-      icon: <RefreshCw size={20} />
+      icon: <RefreshCw size={20} />,
+      image: "/images/spa.jpeg"
     },
     {
       title: "Hair Care Ritual Box",
       desc: "Herbal hair oils and natural shampoos. A thoughtful choice for personal care appreciation.",
-      icon: <CheckSquare size={20} />
+      icon: <CheckSquare size={20} />,
+      image: "/images/haircare.jpeg"
     },
     {
       title: "Festive Celebration Box",
       desc: "Seasonal fragrances and premium soaps. Tailored for Diwali, New Year, and global festivals.",
-      icon: <Calendar size={20} />
+      icon: <Calendar size={20} />,
+      image: "/images/festival.jpeg"
     }
   ];
 
@@ -38,7 +42,6 @@ export default function CorporateGifting() {
     <main className="w-full bg-white text-black pt-32 pb-24 font-sans">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         
-        {/* 1. HERO SECTION */}
         <section className="mb-32">
           <div className="max-w-4xl">
             <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-6 text-neutral-400">Corporate Concierge</h2>
@@ -51,28 +54,36 @@ export default function CorporateGifting() {
           </div>
         </section>
 
-        {/* 2. THE COLLECTIONS (CURATED HAMPERS) */}
-        <section className="mb-32">
+      <section className="mb-32">
           <div className="flex items-center justify-between border-b border-neutral-100 pb-8 mb-12">
             <h3 className="text-sm font-bold uppercase tracking-widest">Pre-Curated Collections</h3>
             <span className="text-[10px] text-neutral-400 uppercase tracking-widest">Section 01</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-200 border border-neutral-200">
             {giftSets.map((set, i) => (
-              <div key={i} className="bg-white p-10 hover:bg-neutral-50 transition-colors group">
-                <div className="mb-20 text-neutral-300 group-hover:text-black transition-colors">
-                  {set.icon}
+              <div key={i} className="bg-white flex flex-col hover:bg-neutral-50 transition-colors group">
+                {/* Image Container */}
+                <div className="aspect-[4/5] overflow-hidden bg-neutral-100">
+                  <img 
+                    src={set.image} 
+                    alt={set.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                  />
                 </div>
-                <h4 className="text-xs font-bold uppercase tracking-widest mb-4">{set.title}</h4>
-                <p className="text-xs text-neutral-500 font-light leading-relaxed">
-                  {set.desc}
-                </p>
+                <div className="p-10">
+                  <div className="mb-12 text-neutral-300 group-hover:text-black transition-colors">
+                    {set.icon}
+                  </div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest mb-4">{set.title}</h4>
+                  <p className="text-xs text-neutral-500 font-light leading-relaxed">
+                    {set.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* 3. CUSTOM BRANDING (BLACK BLOCK) */}
         <section className="mb-32 grid grid-cols-1 lg:grid-cols-2 bg-black text-white">
           <div className="p-12 md:p-24 flex flex-col justify-center border-r border-neutral-800">
             <Briefcase className="mb-8 text-neutral-500" size={32} />

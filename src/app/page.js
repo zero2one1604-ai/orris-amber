@@ -31,31 +31,62 @@ export default function Home() {
       </div>
     </div>
 
-      <section className="py-24 px-6 max-w-[1440px] mx-auto">
-        <div className="mb-16">
-          <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-4 text-center">Industry Expertise</h2>
-          <h3 className="text-3xl font-light text-center tracking-tight">Browse Our Specialty Sectors</h3>
-        </div>
+   <section className="py-24 px-6 max-w-[1440px] mx-auto">
+  <div className="mb-16">
+    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-4 text-center">Industry Expertise</h2>
+    <h3 className="text-3xl font-light text-center tracking-tight">Browse Our Specialty Sectors</h3>
+  </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-100 border border-neutral-100">
-          {[
-            { main: "Fragrance & Perfumery", subs: "EDP (Eau de Parfum), Solid Perfumes, Attars, Room Sprays" },
-            { main: "Personal Care", subs: "Soaps (Artisan/Melt & Pour), Body Scrubs, Shampoos, Conditioners" },
-            { main: "Skin & Lip Care", subs: "Lip Butters, Balms, Body Butters, Moisturizers" },
-            { main: "Home Ambiance", subs: "Scented Candles, Reed Diffusers, Aroma Oils" },
-            { main: "Packaging Solutions", subs: "Glass Bottles, Jars, Caps (Wooden/Acrylic), Pumps/Sprayers" },
-            { main: "Branding Material", subs: "Custom Boxes, Labels, Shipping Cartons" }
-          ].map((cat, idx) => (
-            <div key={idx} className="bg-white p-12 hover:bg-neutral-50 transition-all group">
-              <h4 className="text-lg font-bold uppercase tracking-tighter mb-4">{cat.main}</h4>
-              <p className="text-sm text-neutral-500 font-light leading-relaxed mb-6">{cat.subs}</p>
-              <Link href={`/category/${idx}`} className="text-[10px] font-black uppercase tracking-widest border-b border-black pb-1 group-hover:text-red-600 group-hover:border-red-600 transition-colors">
-                View Solutions
-              </Link>
-            </div>
-          ))}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-100 border border-neutral-100">
+    {[
+      { 
+        main: "Fragrance & Perfumery", 
+        subs: "EDP (Eau de Parfum), Solid Perfumes, Attars, Room Sprays",
+        img: "/images/fragrance.jpeg"
+      },
+      { 
+        main: "Personal Care", 
+        subs: "Soaps (Artisan/Melt & Pour), Body Scrubs, Shampoos, Conditioners",
+        img: "/images/personalcare.jpeg"
+      },
+      { 
+        main: "Skin & Lip Care", 
+        subs: "Lip Butters, Balms, Body Butters, Moisturizers",
+        img: "/images/skincare.jpeg"
+      },
+      { 
+        main: "Home Ambiance", 
+        subs: "Scented Candles, Reed Diffusers, Aroma Oils",
+        img: "/images/home.jpeg"
+      },
+      { 
+        main: "Packaging Solutions", 
+        subs: "Glass Bottles, Jars, Caps (Wooden/Acrylic), Pumps/Sprayers",
+        img: "/images/packaging.jpeg"
+      },
+      { 
+        main: "Branding Material", 
+        subs: "Custom Boxes, Labels, Shipping Cartons",
+        img: "/images/branding.jpeg"
+      }
+    ].map((cat, idx) => (
+      <div key={idx} className="bg-white p-12 hover:bg-neutral-50 transition-all group">
+        <div className="mb-8 overflow-hidden bg-neutral-100 aspect-square">
+          <img 
+            src={cat.img} 
+            alt={cat.main} 
+            className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
+          />
         </div>
-      </section>
+        <h4 className="text-lg font-bold uppercase tracking-tighter mb-4">{cat.main}</h4>
+        <p className="text-sm text-neutral-500 font-light leading-relaxed mb-6">{cat.subs}</p>
+        <Link href={`/category/${idx}`} className="text-[10px] font-black uppercase tracking-widest border-b border-black pb-1 group-hover:text-red-600 group-hover:border-red-600 transition-colors">
+          View Solutions
+        </Link>
+      </div>
+    ))}
+  </div>
+</section>
 
       <section className="py-24 bg-neutral-950 text-white px-6">
         <div className="max-w-[1440px] mx-auto">
@@ -90,14 +121,7 @@ export default function Home() {
                 <p className="text-xs uppercase tracking-widest font-bold">Upload Your Logo (PNG/Vector)</p>
               </div>
 
-              <div className="md:col-span-2">
-                <p className="text-[10px] font-bold uppercase tracking-widest mb-4">Choose Your Color Palette</p>
-                <div className="flex gap-4">
-                  {['#000', '#D4AF37', '#704214', '#E5E4E2'].map(c => (
-                    <div key={c} style={{backgroundColor: c}} className="w-8 h-8 rounded-full border border-neutral-100 cursor-pointer hover:scale-110 transition-transform" />
-                  ))}
-                </div>
-              </div>
+            
 
               <button className="md:col-span-2 bg-black text-white py-5 text-xs font-bold uppercase tracking-[0.3em] hover:bg-neutral-800">
                 Start My Project
@@ -127,7 +151,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 bg-neutral-50">
+      <section className="py-24 hidden bg-neutral-50">
         <div className="px-6 mb-16 text-center">
           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-2">Our Network</p>
           <h3 className="text-2xl font-light">Trusted by Emerging & Global Brands</h3>
