@@ -1,35 +1,13 @@
 import Link from 'next/link'
 import { ShieldCheck, Zap, Upload 
 } from 'lucide-react'
-import Image from 'next/image'
+import Banner from './components/Banner';
 
 export default function Home() {
   return (
     <main className="w-full bg-white text-black font-sans">
       
-  <div className="relative w-full">
-      <div className="hidden md:block">
-        <Image
-          src="/images/desktop.png"
-          alt="Desktop Banner"
-          width={1920}
-          height={600}
-          className="w-full h-auto"
-          priority
-        />
-      </div>
-
-      <div className="block md:hidden">
-        <Image
-          src="/images/mobile.png"
-          alt="Mobile Banner"
-          width={750}
-          height={1000}
-          className="w-full h-auto"
-          priority
-        />
-      </div>
-    </div>
+      <Banner />
 
    <section className="py-24 px-6 max-w-[1440px] mx-auto">
   <div className="mb-16">
