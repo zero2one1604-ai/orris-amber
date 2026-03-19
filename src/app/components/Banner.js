@@ -22,11 +22,9 @@ const Banner = () => {
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* Desktop Autoslide View */}
       <div className="hidden md:block w-full">
         <div 
           className="flex transition-transform duration-700 ease-in-out"
-          /* FIXED MATH: We move by (100 / number of slides) * current index */
           style={{ 
             transform: `translateX(-${(currentSlide * 100) / desktopBanners.length}%)`,
             width: `${desktopBanners.length * 100}%` 
@@ -49,8 +47,7 @@ const Banner = () => {
             </div>
           ))}
         </div>
-        
-        {/* Indicators */}
+
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
           {desktopBanners.map((_, i) => (
             <button
@@ -64,7 +61,6 @@ const Banner = () => {
         </div>
       </div>
 
-      {/* Mobile Static View */}
       <div className="block md:hidden">
         <Image
           src="/images/mobile.png"

@@ -41,7 +41,6 @@ export default function AboutPage() {
     <main className="w-full bg-white text-black pt-32 pb-24 font-sans">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         
-        {/* 1. HERO / WELCOME SECTION */}
         <section className="mb-32">
           <h1 className="text-4xl md:text-7xl font-light tracking-tighter uppercase mb-12 leading-none">
             Crafting a <br /> Legacy of Scent
@@ -60,17 +59,9 @@ export default function AboutPage() {
                 committed to delivering exceptional service.
               </p>
             </div>
-            <div className="aspect-[16/9] bg-neutral-100 overflow-hidden rounded-sm">
-              <img 
-                src="https://images.unsplash.com/photo-1616948648216-9b16866657c4?auto=format&fit=crop&q=80" 
-                alt="Our Studio" 
-                className="w-full h-full object-cover grayscale"
-              />
-            </div>
+          
           </div>
         </section>
-
-        {/* 2. CORE PHILOSOPHY SECTION */}
         <section className="py-24 border-y border-neutral-100 mb-32">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-12 text-neutral-400">The Art Form</h2>
@@ -87,7 +78,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 3. MISSION SECTION */}
         <section className="mb-32 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div className="bg-black text-white p-12 md:p-20 flex flex-col justify-center">
             <Target className="mb-8 text-neutral-400" size={40} />
@@ -122,7 +112,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 4. WHY US SECTION */}
         <section>
           <div className="mb-16">
             <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-center mb-4">Strategic Advantage</h2>

@@ -28,8 +28,8 @@ export const productCategories = [
   ],
   products: [
     {
-      slug: "rose-solid-perfume",
-      name: "Rose Solid Perfume",
+      slug: "solid-perfume",
+      name: "Solid Perfume",
       image: "/images/solidperfume.png",
       description: "Pocket friendly wax based perfume infused with rose fragrance."
     }
@@ -40,6 +40,7 @@ export const productCategories = [
   slug: "edp",
   name: "EDP",
   image: "/images/eaudeperfumetwo.png",
+  imagetwo: "/images/equdeperfumethree.png",
   list: [
     { name: "Aqua Di Gio" },
     { name: "Azzaro Most Wanted" },
@@ -127,6 +128,7 @@ export const productCategories = [
     slug: "candles",
     name: "Candles",
     image: "/images/coconutclovecandle.png",
+    imagetwo: "/images/coconutclovecandletwo.png",
     products: [
       {
         slug: "coconut-clove-candle",
@@ -147,6 +149,7 @@ export const productCategories = [
   slug: "car-perfume",
   name: "Car Perfume",
   image: "/images/carfreshner.png",
+  imagetwo: "/images/carfreshnerfront.png",
   list: [
     { name: "Gucci Bamboo" },
     { name: "On G – Guci" },
@@ -183,6 +186,7 @@ export const productCategories = [
     slug: "ubtan",
     name: "Ubtan",
     image: "/images/royal_ubtanpowder.png",
+    imagetwo: "/images/royalupbtanpacakge.png",
     products: [
       {
         slug: "royal-ubtan",
@@ -197,6 +201,7 @@ export const productCategories = [
     slug: "lip-balm",
     name: "Lip Balm",
     image: "/images/lipbutter.png",
+    imagetwo: "/images/lipbutterpackage.png",
     products: [
       {
         slug: "lip-butter",
@@ -217,6 +222,7 @@ export const productCategories = [
     slug: "soaps",
     name: "Soaps",
     image: "/images/blueclaycharcoalsoap.png",
+      imagetwo: "/images/honeyoatsmilksoappackage.png",
     products: [
       {
         slug: "blue-clay-charcoal",
@@ -261,6 +267,7 @@ export const productCategories = [
     slug: "shampoo",
     name: "Shampoo",
     image: "/images/shampoo.png",
+    imagetwo: "/images/conditionerpackage.png",
     products: [
       {
         slug: "rosemary-shampoo",
@@ -275,6 +282,7 @@ export const productCategories = [
     slug: "body-scrub",
     name: "Body Scrub",
     image: "/images/coffeluffa.png",
+      imagetwo: "/images/sugarbodyscrubfull.png",
     products: [
       {
         slug: "coffee-luffa",
@@ -289,6 +297,7 @@ export const productCategories = [
     slug: "hair-oil",
     name: "Hair Oil",
     image: "/images/hairoil.png",
+    imagetwo: "/images/hairoilpackage.png",
     products: [
       {
         slug: "herbal-hair-oil",

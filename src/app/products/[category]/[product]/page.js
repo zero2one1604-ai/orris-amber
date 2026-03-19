@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { productCategories } from "@/app/lib/products_database"
 import { notFound } from "next/navigation"
+import ProductWhatsAppButton from "@/app/components/ProductWhatsappButton"
 import { ArrowLeft, Share2, Info, Droplet, Sparkles, ShieldCheck } from "lucide-react"
 
 export function generateStaticParams() {
@@ -68,16 +69,19 @@ export default async function ProductPage({ params }) {
                 className="w-full h-full object-cover transition-all duration-1000"
               />
             </div>
-            <div className="grid grid-cols-2 gap-8">
-               <div className="aspect-square bg-neutral-100 flex items-center justify-center p-12">
-                  <p className="text-[10px] uppercase tracking-widest text-neutral-400 text-center leading-loose">
-                    Crafted with <br/> 100% pure <br/> botanical essences
-                  </p>
-               </div>
-               <div className="aspect-square bg-neutral-100 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1615485242250-98319f6f634b?auto=format&fit=crop&q=80" alt="Detail" className="w-full h-full object-cover grayscale opacity-50" />
-               </div>
-            </div>
+            {categoryData.imagetwo && (
+                 <div className="grid grid-cols-2 gap-8">
+                  <div className="aspect-square bg-neutral-100 flex items-center justify-center p-12">
+                      <p className="text-[10px] uppercase tracking-widest text-neutral-400 text-center leading-loose">
+                        Crafted with <br/> 100% pure <br/> botanical essences
+                      </p>
+                  </div>
+                  <div className="aspect-square bg-neutral-100 overflow-hidden">
+                      <img src={categoryData.imagetwo} alt="Detail" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                )}
+             
           </div>
 
           <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-12">
@@ -125,9 +129,10 @@ export default async function ProductPage({ params }) {
             </div>
 
             <div className="space-y-4">
-                <button className="w-full bg-black text-white py-5 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-neutral-800 transition-colors">
-                    Inquire for Bulk Order
-                </button>
+            <ProductWhatsAppButton 
+  product={productData} 
+  category={categoryData} 
+/>
                 <p className="text-[9px] text-center text-neutral-400 uppercase tracking-widest italic">
                     *Samples available for corporate clients upon request
                 </p>

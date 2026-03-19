@@ -6,6 +6,48 @@ import { Send, MapPin, Phone, Mail, ChevronDown, ChevronUp } from 'lucide-react'
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState(null);
 
+  const [form, setForm] = useState({
+  name: '',
+  company: '',
+  email: '',
+  phone: '',
+  requirement: 'Private Label Perfume (EDP)',
+  message: ''
+})
+
+const handleChange = (e) => {
+  const { name, value } = e.target
+  setForm(prev => ({
+    ...prev,
+    [name]: value
+  }))
+}
+
+const handleSubmit = (e) => {
+  e.preventDefault()
+
+  const text = `
+New Inquiry from Website
+
+Name: ${form.name}
+Company: ${form.company}
+Email: ${form.email}
+Phone: ${form.phone}
+Requirement: ${form.requirement}
+
+Message:
+${form.message}
+  `
+
+  const encoded = encodeURIComponent(text)
+
+  const phoneNumber = "919871566081"
+
+  const url = `https://wa.me/${phoneNumber}?text=${encoded}`
+
+  window.open(url, '_blank')
+}
+
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
@@ -49,7 +91,6 @@ export default function ContactPage() {
     <main className="w-full bg-white text-black pt-32 pb-24">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         
-        {/* HEADER */}
         <div className="mb-20">
           <h1 className="text-4xl md:text-6xl font-light tracking-tighter uppercase mb-6">
             Partner With <br /> Orris & Amber
@@ -62,35 +103,34 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
           
-          {/* LEFT: ENQUIRY FORM */}
           <section>
             <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-12 text-black">Enquiry Form</h2>
-            <form className="space-y-8">
+            <form className="space-y-8" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex flex-col border-b border-neutral-200 pb-2 focus-within:border-black transition-colors">
                   <label className="text-[10px] uppercase tracking-widest font-bold text-neutral-400 mb-2">Full Name</label>
-                  <input type="text" className="bg-transparent outline-none text-sm" placeholder="John Doe" />
+                  <input type="text" className="bg-transparent outline-none text-sm" placeholder="Your name" name="name" onChange={handleChange} />
                 </div>
                 <div className="flex flex-col border-b border-neutral-200 pb-2 focus-within:border-black transition-colors">
                   <label className="text-[10px] uppercase tracking-widest font-bold text-neutral-400 mb-2">Company Name</label>
-                  <input type="text" className="bg-transparent outline-none text-sm" placeholder="Your Brand Ltd." />
+                  <input type="text" className="bg-transparent outline-none text-sm" placeholder="Your Brand Ltd." name="company" onChange={handleChange} />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex flex-col border-b border-neutral-200 pb-2 focus-within:border-black transition-colors">
                   <label className="text-[10px] uppercase tracking-widest font-bold text-neutral-400 mb-2">Email</label>
-                  <input type="email" className="bg-transparent outline-none text-sm" placeholder="sales@brand.com" />
+                  <input type="email" className="bg-transparent outline-none text-sm" placeholder="sales@brand.com" name="email" onChange={handleChange} />
                 </div>
                 <div className="flex flex-col border-b border-neutral-200 pb-2 focus-within:border-black transition-colors">
                   <label className="text-[10px] uppercase tracking-widest font-bold text-neutral-400 mb-2">Phone / WhatsApp</label>
-                  <input type="tel" className="bg-transparent outline-none text-sm" placeholder="+91 00000 00000" />
+                  <input type="tel" className="bg-transparent outline-none text-sm" placeholder="+91 00000 00000" name="phone" onChange={handleChange} />
                 </div>
               </div>
 
               <div className="flex flex-col border-b border-neutral-200 pb-2 focus-within:border-black transition-colors">
                 <label className="text-[10px] uppercase tracking-widest font-bold text-neutral-400 mb-2">Requirement Type</label>
-                <select className="bg-transparent outline-none text-sm appearance-none cursor-pointer">
+                <select className="bg-transparent outline-none text-sm appearance-none cursor-pointer" name="requirement" onChange={handleChange}>
                   <option>Private Label Perfume (EDP)</option>
                   <option>Skincare / Personal Care</option>
                   <option>Home Ambiance / Candles</option>
@@ -100,16 +140,15 @@ export default function ContactPage() {
 
               <div className="flex flex-col border-b border-neutral-200 pb-2 focus-within:border-black transition-colors">
                 <label className="text-[10px] uppercase tracking-widest font-bold text-neutral-400 mb-2">Message</label>
-                <textarea rows={4} className="bg-transparent outline-none text-sm resize-none" placeholder="Briefly describe your project goals..." />
+                <textarea rows={4} className="bg-transparent outline-none text-sm resize-none" placeholder="Briefly describe your project goals..." name="message" onChange={handleChange} />
               </div>
 
-              <button className="w-full md:w-auto bg-black text-white px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-neutral-800 transition-all flex items-center justify-center gap-3">
+              <button type='submit' className="w-full md:w-auto bg-black text-white px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-neutral-800 transition-all flex items-center justify-center gap-3">
                 Send Inquiry <Send size={14} />
               </button>
             </form>
           </section>
 
-          {/* RIGHT: FAQs */}
           <section>
             <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-12 text-black">Frequently Asked Questions</h2>
             <div className="divide-y divide-neutral-100">
@@ -131,20 +170,19 @@ export default function ContactPage() {
               ))}
             </div>
 
-            {/* QUICK CONTACT BOX */}
             <div className="mt-16 bg-neutral-50 p-10 border border-neutral-100">
               <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-8">Direct Contact</h3>
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <MapPin size={18} className="text-neutral-400" />
                   <p className="text-xs uppercase tracking-widest leading-relaxed">
-                    B-12, Sector 4, Noida, UP 201301 <br />
-                    Plot 45, Bawana Industrial Area, Delhi
+                    Orris & Amber, 69/6A Rama Road,<br />
+                      Najafgarh Road Industrial Area, New Delhi - 110015
                   </p>
                 </div>
                 <div className="flex gap-4">
                   <Mail size={18} className="text-neutral-400" />
-                  <p className="text-xs tracking-widest">sales@orrisandamber.com</p>
+                  <p className="text-xs tracking-widest">orrisandamber@gmail.com</p>
                 </div>
               </div>
             </div>

@@ -1,9 +1,46 @@
+'use client'
 import Link from 'next/link'
+import { useState } from 'react'
 import { ShieldCheck, Zap, Upload 
 } from 'lucide-react'
 import Banner from './components/Banner';
 
 export default function Home() {
+
+  const [projectForm, setProjectForm] = useState({
+  brand: '',
+  email: ''
+})
+
+const handleProjectChange = (e) => {
+  const { name, value } = e.target
+  setProjectForm(prev => ({
+    ...prev,
+    [name]: value
+  }))
+}
+
+const handleProjectSubmit = (e) => {
+  e.preventDefault()
+
+  const text = `
+New Project Request
+
+Brand Name: ${projectForm.brand}
+Email: ${projectForm.email}
+
+Interested in starting a perfume project.
+  `
+
+  const encoded = encodeURIComponent(text)
+
+  const phoneNumber = "919871566081"
+
+  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encoded}`
+
+  window.open(url, '_blank')
+}
+
   return (
     <main className="w-full bg-white text-black font-sans">
       
@@ -58,9 +95,7 @@ export default function Home() {
         </div>
         <h4 className="text-lg font-bold uppercase tracking-tighter mb-4">{cat.main}</h4>
         <p className="text-sm text-neutral-500 font-light leading-relaxed mb-6">{cat.subs}</p>
-        <Link href={`/category/${idx}`} className="text-[10px] font-black uppercase tracking-widest border-b border-black pb-1 group-hover:text-red-600 group-hover:border-red-600 transition-colors">
-          View Solutions
-        </Link>
+      
       </div>
     ))}
   </div>
@@ -90,10 +125,22 @@ export default function Home() {
 
           <div className="max-w-4xl mx-auto bg-white text-black p-10 md:p-16 rounded-sm">
             <h3 className="text-2xl font-bold mb-8 text-center uppercase tracking-tighter">Request Customization</h3>
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <input type="text" placeholder="Brand Name" className="border-b border-neutral-200 py-3 outline-none focus:border-black transition-colors" />
-              <input type="email" placeholder="Email Address" className="border-b border-neutral-200 py-3 outline-none focus:border-black transition-colors" />
-              
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-8" onSubmit={handleProjectSubmit}>
+          <input 
+  type="text" 
+  name="brand"
+  onChange={handleProjectChange}
+  placeholder="Brand Name" 
+  className="border-b border-neutral-200 py-3 outline-none focus:border-black transition-colors" 
+/>
+
+<input 
+  type="email" 
+  name="email"
+  onChange={handleProjectChange}
+  placeholder="Email Address" 
+  className="border-b border-neutral-200 py-3 outline-none focus:border-black transition-colors" 
+/>
               <div className="md:col-span-2 border-2 border-dashed border-neutral-200 p-8 text-center hover:bg-neutral-50 cursor-pointer group transition-all">
                 <Upload className="mx-auto mb-4 text-neutral-300 group-hover:text-black" />
                 <p className="text-xs uppercase tracking-widest font-bold">Upload Your Logo (PNG/Vector)</p>
@@ -101,7 +148,7 @@ export default function Home() {
 
             
 
-              <button className="md:col-span-2 bg-black text-white py-5 text-xs font-bold uppercase tracking-[0.3em] hover:bg-neutral-800">
+              <button type='submit' className="cursor-pointer md:col-span-2 bg-black text-white py-5 text-xs font-bold uppercase tracking-[0.3em] hover:bg-neutral-800">
                 Start My Project
               </button>
             </form>

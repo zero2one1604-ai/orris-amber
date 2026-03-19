@@ -5,7 +5,7 @@ export const blogs = [
     title: "Custom vs Ready-Made Perfumes: Which Is Better for Retailers",
     excerpt:
       "Detailed comparison of custom vs ready-made perfumes for retailers in India. Understand costs, margins, exclusivity, risks and manufacturer support.",
-    image: "/images/custom-vs-ready.jpg",
+    image: "https://images.unsplash.com/photo-1715788080955-c43875bdeff7?q=80&w=880&auto=format&fit=crop",
     readTime: "8 min read",
     category: "Retail Insights",
     date: "2026-01-10",
@@ -90,7 +90,7 @@ export const blogs = [
     title: "Top Fragrance Notes Preferred by Indian Consumers in 2026",
     excerpt:
       "Explore oudh, aquatic, spicy-woody, gourmand and musk fragrance trends shaping Indian perfume retail in 2026.",
-    image: "/images/fragrance-notes.jpg",
+    image: "https://plus.unsplash.com/premium_photo-1679106770086-f4355693be1b?q=80&w=687&auto=format&fit=crop",
     readTime: "6 min read",
     category: "Consumer Trends",
     date: "2026-01-15",
@@ -158,7 +158,7 @@ export const blogs = [
     title: "How to Launch Your Own Perfume Brand in India: Complete Guide",
     excerpt:
       "Step-by-step guide to launching your own perfume brand in India from formulation to packaging and go-to-market.",
-    image: "/images/launch-perfume.jpg",
+    image: "https://images.unsplash.com/photo-1739366379947-bf1f6d932e67?q=80&w=2001&auto=format&fit=crop",
     readTime: "10 min read",
     category: "Entrepreneurship",
     date: "2026-01-20",
@@ -221,7 +221,7 @@ export const blogs = [
     title: "How Indian Perfume Manufacturers Ensure Batch-to-Batch Consistency",
     excerpt:
       "Understand how professional perfume manufacturers maintain fragrance consistency using QC, documentation, automation and testing.",
-    image: "/images/batch-consistency.jpg",
+    image: "https://images.unsplash.com/photo-1676935753519-a8dcb3ed5fe3?q=80&w=1632&auto=format&fit=crop",
     readTime: "7 min read",
     category: "Manufacturing Insights",
     date: "2026-01-25",
@@ -269,7 +269,7 @@ export const blogs = [
     title: "Travel-Friendly Perfumes: A Growing Trend in India",
     excerpt:
       "Why travel perfumes are becoming a core retail category in India and how retailers can leverage this growing segment.",
-    image: "/images/travel-perfume.jpg",
+    image: "https://images.unsplash.com/photo-1738414808975-201966230c59?q=80&w=1470&auto=format&fit=crop",
       readTime: "5 min read",
     category: "Consumer Trends",
     date: "2026-02-01",

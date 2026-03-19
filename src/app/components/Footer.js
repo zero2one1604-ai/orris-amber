@@ -5,14 +5,11 @@ import { Instagram, Linkedin, Send } from 'lucide-react'
 export default function Footer() {
   return (
     <footer className="bg-white text-black border-t border-neutral-100">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-20">
-        
+      <div className="max-w-360 mx-auto px-6 md:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-          
-          {/* Column 1: Brand & Social */}
           <div className="md:col-span-4">
             <Image 
-              src="/images/orrislogo.png" 
+              src="/images/orrislogo.png"
               alt="Orris & Amber Logo"
               width={120}
               height={40}
@@ -32,7 +29,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div className="md:col-span-2">
             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-black">Quick Links</h4>
             <ul className="space-y-4 text-[11px] uppercase tracking-[0.2em] text-neutral-500">
@@ -43,22 +39,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact Details */}
           <div className="md:col-span-3">
             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-black">Contact</h4>
             <div className="space-y-6 text-[11px] uppercase tracking-widest text-neutral-500 leading-relaxed">
               <div>
-                <span className="block font-bold text-black mb-1">Office</span>
-                <p>B-12, Sector 4, <br /> Noida, UP 201301</p>
-              </div>
-              <div>
-                <span className="block font-bold text-black mb-1">Factory</span>
-                <p>Plot 45, Industrial Area, <br /> Bawana, Delhi 110039</p>
+                <span className="block font-bold text-black mb-1">Location</span>
+                <p>Orris & Amber, 69/6A Rama Road<br /> Najafgarh Road Industrial Area, New Delhi - 110015</p>
               </div>
               <div>
                 <span className="block font-bold text-black mb-1">Inquiries</span>
-                <p>+91 98765 43210</p>
-                <p className="lowercase tracking-normal mt-1">sales@orrisandamber.com</p>
+                <p>+91 98715 66081</p>
+                <p className="lowercase tracking-normal mt-1">orrisandamber@gmail.com</p>
               </div>
             </div>
           </div>
@@ -79,15 +70,12 @@ export default function Footer() {
               </button>
             </div>
           </div>
-
         </div>
-
         <div className="mt-20 pt-8 border-t border-neutral-50 flex justify-center">
-          <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-neutral-300">
-            © {new Date().getFullYear()} Orris & Amber. All Rights Reserved.
+          <p className="text-[9px] font-bold text-neutral-600">
+            © {new Date().getFullYear()} Orris & Amber. All Rights Reserved. | Curated & Manufactured by Zero2One Marketing
           </p>
         </div>
-
       </div>
     </footer>
   )
