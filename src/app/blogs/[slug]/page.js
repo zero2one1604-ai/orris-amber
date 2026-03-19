@@ -36,12 +36,10 @@ export default async function BlogPage({ params }) {
 
   return (
     <main className="bg-white min-h-screen font-sans selection:bg-black selection:text-white">
-      {/* 1. PROGRESS BAR */}
       <div className="fixed top-0 left-0 w-full h-[2px] z-[100] bg-neutral-100">
         <div className="h-full bg-black transition-all duration-300 w-0" id="progress-bar" />
       </div>
 
-      {/* 2. HEADER */}
       <header className="relative pt-32 pb-20 px-6 md:px-12 max-w-[1440px] mx-auto border-b border-neutral-100">
         <div className="max-w-5xl">
           <Link 
@@ -90,7 +88,6 @@ export default async function BlogPage({ params }) {
         </div>
       </header>
 
-      {/* 3. HERO IMAGE */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto -mt-px">
         <div className="aspect-[21/9] bg-neutral-100 overflow-hidden">
           <img 
@@ -101,10 +98,8 @@ export default async function BlogPage({ params }) {
         </div>
       </section>
 
-      {/* 4. CONTENT GRID */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20 py-24">
         
-        {/* Sidebar */}
         <aside className="hidden lg:block lg:col-span-3 sticky top-40 h-fit space-y-20">
           <div>
             <h4 className="text-[11px] font-bold uppercase tracking-widest mb-8 border-b-2 border-black text-black pb-2 inline-block">Share Analysis</h4>
@@ -128,7 +123,6 @@ export default async function BlogPage({ params }) {
           </div>
         </aside>
 
-        {/* FORMATTED CONTENT ARTICLE */}
         <article className="lg:col-span-8 lg:col-start-5">
           <div 
             className="rich-text-content text-black prose prose-neutral max-w-none 
@@ -153,7 +147,6 @@ export default async function BlogPage({ params }) {
             dangerouslySetInnerHTML={{ __html: blog.content }} 
           />
 
-          {/* Tags */}
           <div className="mt-24 pt-12 border-t border-neutral-100 flex flex-wrap gap-4">
             {['Strategy', 'Manufacturing', 'SupplyChain'].map(tag => (
               <span key={tag} className="text-[10px] uppercase tracking-widest font-bold px-5 py-2 bg-neutral-50 border border-neutral-100 text-black">
@@ -164,7 +157,6 @@ export default async function BlogPage({ params }) {
         </article>
       </section>
 
-      {/* 5. NEWSLETTER */}
       <section className="bg-black text-white py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-4xl md:text-6xl font-light uppercase tracking-tighter mb-10">Stay Informed</h3>
