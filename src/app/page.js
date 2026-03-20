@@ -1,202 +1,40 @@
-'use client'
-import Link from 'next/link'
-import { useState } from 'react'
-import { ShieldCheck, Zap, Upload 
-} from 'lucide-react'
-import Banner from './components/Banner';
+import HomeClient from '@/app/components/HomeClient'
 
-export default function Home() {
-
-  const [projectForm, setProjectForm] = useState({
-  brand: '',
-  email: ''
-})
-
-const handleProjectChange = (e) => {
-  const { name, value } = e.target
-  setProjectForm(prev => ({
-    ...prev,
-    [name]: value
-  }))
+export const metadata = {
+  title: 'Wholesale Perfume Manufacturer & Private Label Fragrances',
+  description:
+    'Orris & Amber is a leading wholesale perfume manufacturer offering private label fragrances, attar, candles, and custom scent solutions for retailers and global brands.',
+  alternates: {
+    canonical: '/'
+  }
 }
 
-const handleProjectSubmit = (e) => {
-  e.preventDefault()
 
-  const text = `
-New Project Request
-
-Brand Name: ${projectForm.brand}
-Email: ${projectForm.email}
-
-Interested in starting a perfume project.
-  `
-
-  const encoded = encodeURIComponent(text)
-
-  const phoneNumber = "919871566081"
-
-  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encoded}`
-
-  window.open(url, '_blank')
-}
-
+export default function Page() {
   return (
-    <main className="w-full bg-white text-black font-sans">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Orris & Amber",
+            url: "https://orrisandamber.com",
+            logo: "https://orrisandamber.com/orrislogo.png",
+            description:
+              "Wholesale perfume manufacturer and private label fragrance supplier offering attar, candles, and custom scent solutions.",
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+91-9871566081",
+              contactType: "customer service",
+              areaServed: "Worldwide"
+            }
+          })
+        }}
+      />
       
-      <Banner />
-
-   <section className="py-24 px-6 max-w-[1440px] mx-auto">
-  <div className="mb-16">
-    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-4 text-center">Industry Expertise</h2>
-    <h3 className="text-3xl font-light text-center tracking-tight">Browse Our Specialty Sectors</h3>
-  </div>
-
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-100 border border-neutral-100">
-    {[
-      { 
-        main: "Fragrance & Perfumery", 
-        subs: "EDP (Eau de Parfum), Solid Perfumes, Attars, Room Sprays",
-        img: "/images/fragrance.jpeg"
-      },
-      { 
-        main: "Personal Care", 
-        subs: "Soaps (Artisan/Melt & Pour), Body Scrubs, Shampoos, Conditioners",
-        img: "/images/personalcare.jpeg"
-      },
-      { 
-        main: "Skin & Lip Care", 
-        subs: "Lip Butters, Balms, Body Butters, Moisturizers",
-        img: "/images/skincare.jpeg"
-      },
-      { 
-        main: "Home Ambiance", 
-        subs: "Scented Candles, Reed Diffusers, Aroma Oils",
-        img: "/images/home.jpeg"
-      },
-      { 
-        main: "Packaging Solutions", 
-        subs: "Glass Bottles, Jars, Caps (Wooden/Acrylic), Pumps/Sprayers",
-        img: "/images/packaging.jpeg"
-      },
-      { 
-        main: "Branding Material", 
-        subs: "Custom Boxes, Labels, Shipping Cartons",
-        img: "/images/branding.jpeg"
-      }
-    ].map((cat, idx) => (
-      <div key={idx} className="bg-white p-12 hover:bg-neutral-50 transition-all group">
-        <div className="mb-8 overflow-hidden bg-neutral-100 aspect-square">
-          <img 
-            src={cat.img} 
-            alt={cat.main} 
-            className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
-          />
-        </div>
-        <h4 className="text-lg font-bold uppercase tracking-tighter mb-4">{cat.main}</h4>
-        <p className="text-sm text-neutral-500 font-light leading-relaxed mb-6">{cat.subs}</p>
-      
-      </div>
-    ))}
-  </div>
-</section>
-
-      <section className="py-24 bg-neutral-950 text-white px-6">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-light tracking-tight mb-4">Build Your Brand</h2>
-            <p className="text-neutral-400 uppercase tracking-[0.2em] text-xs">Our 4-Step Production Process</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
-            {[
-              { step: "01", label: "Formulation", desc: "Choose from our library or create a custom scent/formula." },
-              { step: "02", label: "Packaging", desc: "Select bottles, caps, and pumps from our extensive inventory." },
-              { step: "03", label: "Branding", desc: "Custom label printing and box design." },
-              { step: "04", label: "Production", desc: "Low MOQ manufacturing and doorstep delivery." }
-            ].map((s, i) => (
-              <div key={i} className="relative">
-                <span className="text-6xl font-black opacity-10 absolute -top-10 left-0">{s.step}</span>
-                <h5 className="text-xl font-bold mb-4 relative z-10">{s.label}</h5>
-                <p className="text-sm text-neutral-400 leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-4xl mx-auto bg-white text-black p-10 md:p-16 rounded-sm">
-            <h3 className="text-2xl font-bold mb-8 text-center uppercase tracking-tighter">Request Customization</h3>
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-8" onSubmit={handleProjectSubmit}>
-          <input 
-  type="text" 
-  name="brand"
-  onChange={handleProjectChange}
-  placeholder="Brand Name" 
-  className="border-b border-neutral-200 py-3 outline-none focus:border-black transition-colors" 
-/>
-
-<input 
-  type="email" 
-  name="email"
-  onChange={handleProjectChange}
-  placeholder="Email Address" 
-  className="border-b border-neutral-200 py-3 outline-none focus:border-black transition-colors" 
-/>
-              <div className="md:col-span-2 border-2 border-dashed border-neutral-200 p-8 text-center hover:bg-neutral-50 cursor-pointer group transition-all">
-                <Upload className="mx-auto mb-4 text-neutral-300 group-hover:text-black" />
-                <p className="text-xs uppercase tracking-widest font-bold">Upload Your Logo (PNG/Vector)</p>
-              </div>
-
-            
-
-              <button type='submit' className="cursor-pointer md:col-span-2 bg-black text-white py-5 text-xs font-bold uppercase tracking-[0.3em] hover:bg-neutral-800">
-                Start My Project
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-      <section className="py-24 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
-        <div className="flex items-start gap-6">
-          <Zap className="shrink-0 text-red-600" size={32} />
-          <div>
-            <h4 className="text-xl font-bold mb-4 uppercase tracking-tighter">Low MOQ Advantage</h4>
-            <p className="text-neutral-500 leading-relaxed">
-              We empower startups and boutique brands. Launch your vision with manageable order quantities without sacrificing premium quality.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start gap-6">
-          <ShieldCheck className="shrink-0 text-red-600" size={32} />
-          <div>
-            <h4 className="text-xl font-bold mb-4 uppercase tracking-tighter">Quality Assurance</h4>
-            <p className="text-neutral-500 leading-relaxed">
-              Global compliance is our standard. Our facility operates under ISO and GMP certifications with rigorous internal laboratory testing.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 hidden bg-neutral-50">
-        <div className="px-6 mb-16 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-2">Our Network</p>
-          <h3 className="text-2xl font-light">Trusted by Emerging & Global Brands</h3>
-        </div>
-        
-        <div className="flex overflow-hidden whitespace-nowrap gap-16 opacity-30 grayscale mb-24">
-           {['Brand One', 'Brand Two', 'Brand Three', 'Brand Four', 'Brand Five'].map(b => (
-             <span key={b} className="text-4xl font-black uppercase tracking-tighter">{b}</span>
-           ))}
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="bg-white p-12 shadow-sm border border-neutral-100 relative italic text-neutral-600 text-lg text-center">
-            <span className="text-6xl absolute top-0 left-4 opacity-10">"</span>
-            "The lead times and product consistency provided by Orris & Amber allowed us to scale our EDP line from a small boutique to national distribution in under 12 months."
-            <p className="mt-6 text-xs font-bold uppercase tracking-widest text-black not-italic">— Founder, Niche Scents India</p>
-          </div>
-        </div>
-      </section>
-
-    </main>
+      <HomeClient />
+    </>
   )
 }

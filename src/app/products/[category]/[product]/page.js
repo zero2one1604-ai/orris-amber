@@ -2,7 +2,7 @@ import Link from "next/link"
 import { productCategories } from "@/app/lib/products_database"
 import { notFound } from "next/navigation"
 import ProductWhatsAppButton from "@/app/components/ProductWhatsappButton"
-import { ArrowLeft, Share2, Info, Droplet, Sparkles, ShieldCheck } from "lucide-react"
+import { ArrowLeft, Share2, Info, Droplet, Sparkles, ShieldCheck, Box } from "lucide-react"
 
 export function generateStaticParams() {
   const paths = []
@@ -42,6 +42,12 @@ export default async function ProductPage({ params }) {
 
   const otherProducts = categoryData.products.filter(p => p.slug !== productData.slug)
 
+  const getSampleWhatsAppUrl = () => {
+    const phoneNumber = "919871566081";
+    const message = `Hello Orris & Amber, I would like to order a sample for: ${productData.name} from the ${categoryData.name} collection.`;
+    return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  };
+
   return (
     <main className="w-full bg-white text-black pt-32 pb-24 font-sans selection:bg-black selection:text-white">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
@@ -70,18 +76,17 @@ export default async function ProductPage({ params }) {
               />
             </div>
             {categoryData.imagetwo && (
-                 <div className="grid grid-cols-2 gap-8">
-                  <div className="aspect-square bg-neutral-100 flex items-center justify-center p-12">
-                      <p className="text-[10px] uppercase tracking-widest text-neutral-400 text-center leading-loose">
-                        Crafted with <br/> 100% pure <br/> botanical essences
-                      </p>
-                  </div>
-                  <div className="aspect-square bg-neutral-100 overflow-hidden">
-                      <img src={categoryData.imagetwo} alt="Detail" className="w-full h-full object-cover" />
-                  </div>
+              <div className="grid grid-cols-2 gap-8">
+                <div className="aspect-square bg-neutral-100 flex items-center justify-center p-12">
+                  <p className="text-[10px] uppercase tracking-widest text-neutral-400 text-center leading-loose">
+                    Crafted with <br/> 100% pure <br/> botanical essences
+                  </p>
                 </div>
-                )}
-             
+                <div className="aspect-square bg-neutral-100 overflow-hidden">
+                  <img src={categoryData.imagetwo} alt="Detail" className="w-full h-full object-cover" />
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-12">
@@ -98,84 +103,93 @@ export default async function ProductPage({ params }) {
             </header>
 
             <div className="grid grid-cols-2 gap-y-10 gap-x-4 py-10 border-y border-neutral-100">
-                <div className="flex gap-4">
-                    <Droplet size={18} className="text-neutral-300" />
-                    <div>
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Concentration</h4>
-                        <p className="text-xs text-neutral-500 font-light">Extrait de Parfum</p>
-                    </div>
+              <div className="flex gap-4">
+                <Droplet size={18} className="text-neutral-300" />
+                <div>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Concentration</h4>
+                  <p className="text-xs text-neutral-500 font-light">Extrait de Parfum</p>
                 </div>
-                <div className="flex gap-4">
-                    <Sparkles size={18} className="text-neutral-300" />
-                    <div>
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Longevity</h4>
-                        <p className="text-xs text-neutral-500 font-light">12+ Hours</p>
-                    </div>
+              </div>
+              <div className="flex gap-4">
+                <Sparkles size={18} className="text-neutral-300" />
+                <div>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Longevity</h4>
+                  <p className="text-xs text-neutral-500 font-light">12+ Hours</p>
                 </div>
-                <div className="flex gap-4">
-                    <ShieldCheck size={18} className="text-neutral-300" />
-                    <div>
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Sourcing</h4>
-                        <p className="text-xs text-neutral-500 font-light">Ethical Botanicals</p>
-                    </div>
+              </div>
+              <div className="flex gap-4">
+                <ShieldCheck size={18} className="text-neutral-300" />
+                <div>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Sourcing</h4>
+                  <p className="text-xs text-neutral-500 font-light">Ethical Botanicals</p>
                 </div>
-                <div className="flex gap-4">
-                    <Info size={18} className="text-neutral-300" />
-                    <div>
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Availability</h4>
-                        <p className="text-xs text-neutral-500 font-light">Bulk & Retail</p>
-                    </div>
+              </div>
+              <div className="flex gap-4">
+                <Info size={18} className="text-neutral-300" />
+                <div>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Availability</h4>
+                  <p className="text-xs text-neutral-500 font-light">Bulk & Retail</p>
                 </div>
+              </div>
             </div>
 
             <div className="space-y-4">
-            <ProductWhatsAppButton 
-  product={productData} 
-  category={categoryData} 
-/>
-                <p className="text-[9px] text-center text-neutral-400 uppercase tracking-widest italic">
-                    *Samples available for corporate clients upon request
-                </p>
-            </div>
+              <ProductWhatsAppButton 
+                product={productData} 
+                category={categoryData} 
+              />
+              
+              {/* ORDER SAMPLE BUTTON */}
+              <Link 
+                href={getSampleWhatsAppUrl()}
+                target="_blank"
+                className="w-full border border-black flex items-center justify-center gap-3 py-4 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-neutral-50 transition-all"
+              >
+                <Box size={14} />
+                Order Sample
+              </Link>
 
-           
+              <p className="text-[9px] text-center text-neutral-400 uppercase tracking-widest italic">
+                *Samples available for corporate clients upon request
+              </p>
+            </div>
           </div>
         </div>
+
         <section className="mt-32 pt-24 border-t border-neutral-100">
-            <div className="max-w-2xl">
-                <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-8">Product Narrative</h2>
-                <p className="text-neutral-600 font-light leading-loose">
-                    Each bottle of {productData.name} undergoes a strict maturation process in our temperature-controlled facility in India. 
-                    Designed for the modern connoisseur, this fragrance utilizes high-grade {categoryData.name.toLowerCase()} extraction techniques 
-                    to ensure that the scent profile remains consistent from the first spray to the last.
-                </p>
-            </div>
+          <div className="max-w-2xl">
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-8">Product Narrative</h2>
+            <p className="text-neutral-600 font-light leading-loose">
+              Each bottle of {productData.name} undergoes a strict maturation process in our temperature-controlled facility in India. 
+              Designed for the modern connoisseur, this fragrance utilizes high-grade {categoryData.name.toLowerCase()} extraction techniques 
+              to ensure that the scent profile remains consistent from the first spray to the last.
+            </p>
+          </div>
         </section>
 
         {categoryData.list && (
-                <div className="lg:col-span-7 mt-10">
-                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-8">Available Profiles in this Collection</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-8">
-                      {categoryData.list.map((item, index) => (
-                        <div key={index} className="flex items-center gap-3 group">
-                          <span className="text-[8px] text-neutral-300 font-mono group-hover:text-black transition-colors">
-                            {(index + 1).toString().padStart(2, '0')}
-                          </span>
-                          <span className="text-[11px] uppercase tracking-wider text-neutral-500 group-hover:text-black transition-colors font-light">
-                            {item.name}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-12 p-6 bg-neutral-50 border border-neutral-100">
-                      <p className="text-[10px] text-neutral-400 uppercase tracking-widest leading-relaxed">
-                        Note: All profiles listed above are available for custom branding and bulk corporate packaging. 
-                        Contact our concierge for specific notes on each profile.
-                      </p>
-                    </div>
+          <div className="lg:col-span-7 mt-10">
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-8">Available Profiles in this Collection</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-8">
+              {categoryData.list.map((item, index) => (
+                <div key={index} className="flex items-center gap-3 group">
+                  <span className="text-[8px] text-neutral-300 font-mono group-hover:text-black transition-colors">
+                    {(index + 1).toString().padStart(2, '0')}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-wider text-neutral-500 group-hover:text-black transition-colors font-light">
+                    {item.name}
+                  </span>
                 </div>
-              )}
-
+              ))}
+            </div>
+            <div className="mt-12 p-6 bg-neutral-50 border border-neutral-100">
+              <p className="text-[10px] text-neutral-400 uppercase tracking-widest leading-relaxed">
+                Note: All profiles listed above are available for custom branding and bulk corporate packaging. 
+                Contact our concierge for specific notes on each profile.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </main>
   )

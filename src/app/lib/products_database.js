@@ -80,19 +80,19 @@ export const productCategories = [
   products: [
     {
       slug: "amber-edp",
-      name: "Amber Eau De Parfum",
+      name: "Amber Eau De Perfume",
       image: "/images/eau de perfume.png",
       description: "Premium Eau De Parfum with rich amber fragrance and long projection."
     },
     {
       slug: "oud-edp",
-      name: "Oud Eau De Parfum",
+      name: "Oud Eau De Perfume",
       image: "/images/eaudeperfumetwo.png",
       description: "Luxurious Eau De Parfum featuring rare oriental oud fragrance."
     },
     {
       slug: "citrus-edp",
-      name: "Citrus Eau De Parfum",
+      name: "Citrus Eau De Perfume",
       image: "/images/equdeperfumethree.png",
       description: "Refreshing Eau De Parfum with vibrant citrus fragrance and zesty top notes."
     }

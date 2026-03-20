@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Instagram, Linkedin, Send } from 'lucide-react'
+import { Instagram, MessageCircle, Send } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -20,10 +20,14 @@ export default function Footer() {
               skincare, and luxury packaging solutions for brands worldwide.
             </p>
             <div className="flex gap-4">
-              <Link href="https://linkedin.com" className="p-2 border border-neutral-100 rounded-full hover:bg-black hover:text-white transition-all">
-                <Linkedin size={16} />
+              <Link 
+                href="https://wa.me/919871566081" 
+                target="_blank"
+                className="p-2 border border-neutral-100 rounded-full hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all"
+              >
+                <MessageCircle size={16} />
               </Link>
-              <Link href="https://instagram.com" className="p-2 border border-neutral-100 rounded-full hover:bg-black hover:text-white transition-all">
+              <Link href="https://www.instagram.com/orrisandamber" className="p-2 border border-neutral-100 rounded-full hover:bg-black hover:text-white transition-all">
                 <Instagram size={16} />
               </Link>
             </div>
@@ -32,10 +36,9 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-black">Quick Links</h4>
             <ul className="space-y-4 text-[11px] uppercase tracking-[0.2em] text-neutral-500">
-              <li><Link href="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-black transition-colors">Terms of Service</Link></li>
-              <li><Link href="/shipping" className="hover:text-black transition-colors">Shipping Policy</Link></li>
-              <li><Link href="/faq" className="hover:text-black transition-colors">FAQ</Link></li>
+              <li><Link href="/privacy_policy" className="hover:text-black transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms_of_service" className="hover:text-black transition-colors">Terms of Service</Link></li>
+              <li><Link href="/contact_us" className="hover:text-black transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
